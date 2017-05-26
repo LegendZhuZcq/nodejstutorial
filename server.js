@@ -1,8 +1,11 @@
-import config, {nodeEnv, logStars} from './config';
-import https from 'https';
+import config from './config';
+import express from 'express';
+const server = express();
 
-https.get('https://www.lynda.com'), res => {
-  console.log('Status Code:', res.statusCode);
-  console.log
+server.get('/', (req, res) => {
+    res.send('Hello Express');
+});
 
-}
+server.listen(config.port, ()=>{
+  console.info('Express listening on port ', config.port);
+});
